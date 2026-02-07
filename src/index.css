@@ -1,0 +1,226 @@
+body {
+  background-color: white;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto";
+
+  background: repeating-linear-gradient(
+    45deg,
+    hsl(0, 0%, 100%),
+    hsl(0, 0%, 100%) 20px,
+    hsl(0, 0%, 95%) 20px,
+    hsl(0, 0%, 95%) 40px
+  );
+  height: 100vh;
+}
+
+.current-level-container,
+.level-history-container {
+  margin: auto;
+  margin-top: 40px;
+  backdrop-filter: brightness(0.9);
+  color: black;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+}
+
+.current-level-container {
+  width: 60%;
+  max-width: 1200px;
+}
+
+.current-level-container h1,
+.level-history-container h1 {
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.current-level {
+  display: flex;
+  text-align: left;
+  height: 200px;
+  gap: 25px;
+
+  align-items: center;
+  padding-inline: 25px;
+}
+
+.current-level,
+.history-level {
+  background-color: white;
+  border: dashed 2px, hsla(0, 0%, 70%);
+  transition: 0.2s ease-in-out;
+}
+
+.current-level:hover, .history-level:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 1000px) {
+  .current-level {
+    flex-direction: column;
+    text-align: center;
+    width: fit-content;
+    padding: 25px;
+    height: 100%;
+    margin: auto;
+  }
+
+  .current-level-container {
+    width: fit-content;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .history-level-info {
+    flex-direction: column;
+    line-height: 10px;
+  }
+}
+
+.level-video {
+  width: 100%;
+  height: 100%;
+  border: 2px hsla(0, 0%, 50%) solid;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 16 / 9;
+}
+
+.level-info {
+  line-height: 100%;
+}
+
+.level-info p {
+  color: hsl(0, 0%, 30%);
+  font-weight: 300;
+  text-transform: capitalize;
+}
+
+.level-rank {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.level-name {
+  font-size: 1.5rem;
+  font-weight: 750;
+}
+
+.completion-container {
+  width: 50%;
+  height: 40px;
+  display: flex;
+  margin: auto;
+  margin-top: 20px;
+  align-items: center;
+  gap: 10px;
+}
+
+.completion-input,
+.completion-btn,
+.reset-btn {
+  height: 100%;
+  box-sizing: border-box; /* includes padding and border in height */
+  padding: 0 10px; /* optional horizontal padding */
+  border: NONE;
+  font-size: 14px;
+  border: 1px hsla(0, 0%, 70%) solid;
+  border-radius: 5px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto";
+}
+
+.completion-input {
+  flex: 1; /* makes input fill remaining space */
+}
+
+.completion-btn,
+.reset-btn {
+  width: 80px;
+  font-weight: 800;
+  cursor: pointer;
+
+  transition: 0.15s ease-in-out;
+}
+
+.completion-btn {
+  background-color: hsl(97, 100%, 60%);
+}
+
+.reset-btn {
+  background-color: hsl(0, 100%, 60%);
+}
+
+.completion-btn:hover,
+.reset-btn:hover {
+  filter: brightness(0.9);
+}
+
+.completion-btn:active {
+  transform: scale(1.05);
+}
+
+.level-history-container {
+  width: 50%;
+  max-width: 1000px;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.history-level,
+.history-level-info {
+  align-items: center;
+  font-size: 20px;
+}
+
+.history-level {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 20px;
+}
+
+.history-level-info {
+  display: flex;
+  column-gap: 20px;
+}
+
+.no-levels {
+  color: hsl(0, 0%, 30%);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  color: black;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(0, 0, 0, 0.2);
+  border-top: 4px solid #000000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
